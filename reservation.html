@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>reservation | Cap Bon Explorer</title>
+    <link rel="icon" href="https://i.pinimg.com/1200x/2b/03/8f/2b038f755119f785195dad7ed6862307.jpg
+    ">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+s<body>
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="https://i.pinimg.com/1200x/2b/03/8f/2b038f755119f785195dad7ed6862307.jpg" alt="Logo Cap Bon Explorer" width="36"> Cap Bon Explorer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="activites.html">Activites</a></li>
+                        <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.html" aria-current="page">reservation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact et FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="mt-4">Simulateur de reservation</h1>
+        <p>Choisissez une activite, une date et le nombre de personnes pour voir votre prix. Aucun paiement n'est fait et aucune donnee n'est envoyee.</p>
+
+        <div class="row">
+            <div class="col-lg-7">
+                <form id="bookingForm" class="box" novalidate>
+                    <div class="alert" id="formError" hidden></div>
+
+                    <label class="form-label" for="lastName">Nom</label>
+                    <input class="form-control" type="text" id="lastName" required>
+
+                    <label class="form-label" for="firstName">Prenom</label>
+                    <input class="form-control" type="text" id="firstName" required>
+
+                    <label class="form-label" for="email">Adresse e-mail</label>
+                    <input class="form-control" type="email" id="email"  required>
+
+                    <label class="form-label" for="phone">Telephone</label>
+                    <input class="form-control" type="tel" id="phone" required>
+
+                    <label class="form-label" for="activity">Activite</label>
+                    <select class="form-select" id="activity" required>
+                        <option >Choisissez une activite</option>
+                        <option value="20">Decouverte de la medina - 20 TND</option>
+                        <option value="35">Atelier d'initiation a la poterie - 35 TND</option>
+                        <option value="30">Parcours decouverte de Kerkouane - 30 TND</option>
+                        <option value="25">Randonnee decouverte - 25 TND</option>
+                        <option value="40">Circuit du littoral - 40 TND</option>
+                        <option value="25">Peinture sur ceramique - 25 TND</option>
+                        <option value="15">Decouverte d'un marche local - 15 TND</option>
+                        <option value="30">Promenade photographique - 30 TND</option>
+                    </select>
+
+                    <label class="form-label" for="visitDate">Date souhaitee</label>
+                    <input class="form-control" type="date" id="visitDate" required>
+
+                    <label class="form-label" for="people">Nombre de participants (1 a 6)</label>
+                    <input class="form-control" type="number" id="people" min="1" max="6" value="1">
+
+                    <p class="mb-1">Type de participation :</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="individuel" value="individuel" checked>
+                        <label class="form-check-label" for="individuel">Individuel</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="famille" value="famille">
+                        <label class="form-check-label" for="famille">Famille</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="type" id="groupe" value="groupe">
+                        <label class="form-check-label" for="groupe">Groupe</label>
+                    </div>
+
+                    <label class="form-label" for="comment">Commentaire</label>
+                    <textarea class="form-control" id="comment" rows="3"></textarea>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+
+                    </div>
+
+                    <button type="button" class="btn" id="calculateButton">Calculer / Actualiser</button>
+                    <button type="submit" class="btn">Valider la simulation</button>
+                    <button type="reset" class="btn">reinitialiser</button>
+                </form>
+            </div>
+
+            <div class="col-lg-5">
+                <aside class="box">
+                    <h2>Votre prix</h2>
+                    <p>Prix par personne : <b id="unitPrice">0 TND</b></p>
+                    <p>Sous-total : <b id="subtotal">0 TND</b></p>
+                    <p>remise : <b id="discount">0 TND</b></p>
+                    <p>Total : <b id="total">0 TND</b></p>
+                    <p>10 % de remise a partir de 4 personnes.</p>
+                </aside>
+
+                <section class="alert" id="summary" hidden>
+                    <h2>recapitulatif</h2>
+                    <p>Activite : <b id="summaryActivity"></b></p>
+                    <p>Date : <b id="summaryDate"></b></p>
+                    <p>Participants : <b id="summaryPeople"></b></p>
+                    <p>Total : <b id="summaryTotal"></b></p>
+                   
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>2026</p>
+        <nav><a href="index.html">Accueil</a> - <a href="activites.html">Activites</a> - <a href="agenda.html">Agenda</a> - <a href="reservation.html">reservation</a> - <a href="contact.html">Contact et FAQ</a></nav>
+        <p><a href="index.html">retour a l'accueil</a></p>
+    </footer>
+
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/reservation.js"></script>
+</body>
+</html>

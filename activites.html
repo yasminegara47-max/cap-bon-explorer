@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Activites | Cap Bon Explorer</title>
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="https://i.pinimg.com/1200x/2b/03/8f/2b038f755119f785195dad7ed6862307.jpg" alt="Logo Cap Bon Explorer" width="36"> Cap Bon Explorer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="activites.html" aria-current="page">Activites</a></li>
+                        <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact et FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <h1 class="mt-4">Nos activites</h1>
+        <p>Cherchez par titre ou par lieu, ou choisissez une categorie.</p>
+        <div class="box">
+            <label class="form-label" for="searchBox">Recherche</label>
+            <input class="form-control" type="search" id="searchBox" placeholder="Par exemple : poterie, Kelibia, marche">
+            <div id="filters">
+                <button type="button" class="btn choisi" data-category="Toutes">Toutes</button>
+                <button type="button" class="btn" data-category="Culture">Culture</button>
+                <button type="button" class="btn" data-category="Artisanat">Artisanat</button>
+                <button type="button" class="btn" data-category="Nature">Nature</button>
+                <button type="button" class="btn" data-category="Decouverte">Decouverte</button>
+            </div>
+        </div>
+        <p class="mt-4">Activites affichees : <b id="counter">8</b></p>
+        <p class="alert" id="emptyMessage" hidden>Aucune activite trouvee.</p>
+        <div class="row" id="cardsRow">
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Culture" data-search="decouverte de la medina nabeul">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkYBssrxUitg63CSCz6vq1dsguyK0sQcEWxnWMPkPEPg&s=10" alt="Decouverte de la medina">
+                    <div class="card-body">
+                        <h2 class="card-title">Decouverte de la medina</h2>
+                        <p>Culture - Nabeul<br>2 h - 20 TND par personne</p>
+                        <p>Promenez-vous dans les ruelles et decouvrez l'histoire de chaque porte.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Decouverte de la medina" data-place="Nabeul" data-category="Culture" data-duration="2 h" data-price="20" data-description="Notre guide vous emmene dans les vieilles rues de Nabeul. Vous decouvrez des portes traditionnelles, de petits ateliers et des cours calmes. En chemin, vous apprenez comment la medina s'est developpee autour du commerce et de l'artisanat.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Artisanat" data-search="atelier d'initiation a la poterie nabeul">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYfbLqfG24VuRbltRVFcefr6PZPMjzxbJjNz_qL8A_Uw6QlKEPKoOyzbw&s=10" alt="Atelier d'initiation a la poterie">
+                    <div class="card-body">
+                        <h2 class="card-title">Atelier d'initiation a la poterie</h2>
+                        <p>Artisanat - Nabeul<br>1 h 30 - 35 TND par personne</p>
+                        <p>Mettez les mains dans l'argile et faconnez votre propre piece.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Atelier d'initiation a la poterie" data-place="Nabeul" data-category="Artisanat" data-duration="1 h 30" data-price="35" data-description="Nabeul est connue dans toute la Tunisie pour sa poterie. Un potier vous montre comment centrer l'argile et faconner un petit bol. Aucune experience n'est necessaire, seulement un peu de patience.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Culture" data-search="parcours decouverte de kerkouane kerkouane">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMa6Xp1MWAmCUQSOWcR9bg9ldKUZZ5Rb8YN24C0zNoLw&s=10" alt="Parcours decouverte de Kerkouane">
+                    <div class="card-body">
+                        <h2 class="card-title">Parcours decouverte de Kerkouane</h2>
+                        <p>Culture - Kerkouane<br>2 h 30 - 30 TND par personne</p>
+                        <p>Marchez dans une ville punique qui repose au bord de la mer.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Parcours decouverte de Kerkouane" data-place="Kerkouane" data-category="Culture" data-duration="2 h 30" data-price="30" data-description="Kerkouane est une ancienne ville punique sur la cote nord du Cap Bon. Le guide explique comment les maisons, les bains et les rues etaient organises il y a plus de deux mille ans. Vous marchez entre de petits murs de pierre avec la mer toujours en vue.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Nature" data-search="randonnee decouverte djebel abderrahmane">
+                <article class="card">
+                    <img class="card-img-top" src="https://voyage-tunisie.info/wp-content/uploads/2017/10/rando-800x500.jpg" alt="Randonnee decouverte">
+                    <div class="card-body">
+                        <h2 class="card-title">Randonnee decouverte</h2>
+                        <p>Nature - Djebel Abderrahmane<br>3 h - 25 TND par personne</p>
+                        <p>Air frais, collines vertes et grands panoramas sur le Cap Bon.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Randonnee decouverte" data-place="Djebel Abderrahmane" data-category="Nature" data-duration="3 h" data-price="25" data-description="Cette randonnee guidee monte sur les pentes du Djebel Abderrahmane. Sur le sentier, on voit des plantes locales, de petites fermes et la campagne. Nous nous arretons souvent pour boire de l'eau et prendre des photos.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Nature" data-search="circuit du littoral kelibia">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBousvcdytBQ8_49yCEPsd_XPdVxsNmL7YiMNgq2uTjg&s=10" alt="Circuit du littoral">
+                    <div class="card-body">
+                        <h2 class="card-title">Circuit du littoral</h2>
+                        <p>Nature - Kelibia<br>3 h - 40 TND par personne</p>
+                        <p>Suivez la cote, des plages de sable jusqu'au vieux fort.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Circuit du littoral" data-place="Kelibia" data-category="Nature" data-duration="3 h" data-price="40" data-description="Ce circuit suit la belle cote autour de Kelibia, connue pour son sable fin et son eau claire. Vous vous arretez a plusieurs points de vue, dont un pres du vieux fort. Le guide raconte la vie des pecheurs et du port.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Artisanat" data-search="peinture sur ceramique nabeul">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7G_ehB66KQ_ESS4qBpsLWMgWPa9MKvwqSB83_NzB-ZA&s=10" alt="Peinture sur ceramique">
+                    <div class="card-body">
+                        <h2 class="card-title">Peinture sur ceramique</h2>
+                        <p>Artisanat - Nabeul<br>2 h - 25 TND par personne</p>
+                        <p>Choisissez vos couleurs et peignez une ceramique a votre facon.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Peinture sur ceramique" data-place="Nabeul" data-category="Artisanat" data-duration="2 h" data-price="25" data-description="Dans cet atelier detendu, vous decorez une assiette ou un carreau en ceramique avec votre propre dessin. Une artiste vous montre des motifs simples inspires des couleurs de Nabeul. Les pinceaux et les peintures sont fournis.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Decouverte" data-search="decouverte d'un marche local nabeul">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkYBssrxUitg63CSCz6vq1dsguyK0sQcEWxnWMPkPEPg&s=10" alt="Decouverte d'un marche local">
+                    <div class="card-body">
+                        <h2 class="card-title">Decouverte d'un marche local</h2>
+                        <p>Decouverte - Nabeul<br>1 h 30 - 15 TND par personne</p>
+                        <p>Goutez, sentez et decouvrez les couleurs d'un marche vivant.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Decouverte d'un marche local" data-place="Nabeul" data-category="Decouverte" data-duration="1 h 30" data-price="15" data-description="Le marche de Nabeul est plein de couleurs, d'odeurs et de voix sympathiques. Votre guide vous fait passer entre les etals et explique les fruits, les epices et les produits locaux. C'est une visite courte, parfaite le matin.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-6 col-lg-3 activity-card" data-category="Decouverte" data-search="promenade photographique hammamet">
+                <article class="card">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD1WBQ9yV_G2MJUTBfdaOuNuyV-Fafk_hXOyuuTRBdD5_KG8HHL5YUchI&s=10" alt="Promenade photographique">
+                    <div class="card-body">
+                        <h2 class="card-title">Promenade photographique</h2>
+                        <p>Decouverte - Hammamet<br>2 h - 30 TND par personne</p>
+                        <p>Une balade lente pour photographier Hammamet a votre facon.</p>
+                        <button type="button" class="btn detail-button" data-bs-toggle="modal" data-bs-target="#activityModal" data-title="Promenade photographique" data-place="Hammamet" data-category="Decouverte" data-duration="2 h" data-price="30" data-description="Cette promenade a Hammamet est faite pour ceux qui aiment prendre des photos. Votre guide donne des conseils simples sur la lumiere et le cadrage. Vous visitez la vieille ville, le bord de mer et des coins calmes.">Voir les details</button>
+                        <a class="btn" href="reservation.html">Reserver</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="activityModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalInfo"></p>
+                    <p id="modalText"></p>
+                    <a class="btn" href="reservation.html">Reserver cette activite</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>2026</p>
+        <nav><a href="index.html">Accueil</a> - <a href="activites.html">Activites</a> - <a href="agenda.html">Agenda</a> - <a href="reservation.html">Reservation</a> - <a href="contact.html">Contact et FAQ</a></nav>
+        <p><a href="index.html">Retour a l'accueil</a></p>
+    </footer>
+    <script src="vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/activites.js"></script>
+</body>
+</html>
